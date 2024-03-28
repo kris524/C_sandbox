@@ -1,5 +1,8 @@
 
 #include <stdio.h>
+#include <inttypes.h>
+#include <stddef.h>
+#include <math.h>
 
 int compare(const void * a, const void * b){
     return (*(int *)a - *(int *) b );
@@ -45,6 +48,16 @@ int findMax(int numbers[], int length) {
 }
 
 
+void powers_of_two (size_t n, uint64_t powers[n + 1])
+{
+   int num = 2;
+   for(int i=0; i<n+1; i++){
+        
+        powers[i] = pow(num, i);
+   }
+//    return powers;
+}
+
 
 
 
@@ -65,11 +78,15 @@ int main(){
 
 
 
-   printf("\nAfter sorting the list is: \n");
-   for(int n = 0 ; n < 5; n++ ) {   
-      printf("%d ", numbers[n]);
+    return 0;
+
+    int n = 2;
+    uint64_t new_numbers = powers_of_two(n, numbers);
+
+   printf("\nthe list is: \n");
+   for(int n = 0 ; n < 3; n++ ) {   
+      printf("%d ", new_numbers[n]);
    }
 
-    return 0;
 
 }
