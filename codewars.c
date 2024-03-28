@@ -60,6 +60,18 @@ void powers_of_two (size_t n, uint64_t powers[n + 1])
 
 
 
+void between(int a, int b, int *integers) {
+
+    // int start = a;
+   for (int i = 0; i<=b; i++){
+      integers[i] = a;
+      a++;
+    }
+
+}
+
+
+
 
 int main(){
     int numbers[5] = {2,3,10, 1, 1};
