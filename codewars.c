@@ -82,12 +82,21 @@ int paperwork(int n, int m)
 char *get_initials (const char *full_name, char initials[4])
 {
 
-  char damn = strtok(full_name, ' ');
+//   char damn = strtok(full_name, ' ');
 //   *initials = '\0'; // write to initials
   initials[0] = toupper(full_name[0]);
 
   initials[1] = '.';
 
+  for (int i=0; full_name[i] != '\0'; i++){
+
+        if (full_name[i] == ' '){
+            initials[2] = toupper(full_name[i+1]);
+        }
+
+  }
+
+  initials[3] = '\0';
 
   return initials; // return it
 }
@@ -109,7 +118,7 @@ int main(){
     printf("Result: %d\n", sum1);
 
     char initials[4];
-    char name[] = "Sam Harris";
+    char name[] = "reese witherspoon";
     get_initials(name, initials);
 
     printf("%s", initials);
