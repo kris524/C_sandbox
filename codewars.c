@@ -3,6 +3,9 @@
 #include <inttypes.h>
 #include <stddef.h>
 #include <math.h>
+#include <ctype.h> 
+#include <string.h>
+
 
 int compare(const void * a, const void * b){
     return (*(int *)a - *(int *) b );
@@ -70,7 +73,24 @@ void between(int a, int b, int *integers) {
 
 }
 
+int paperwork(int n, int m)
+{
+    return n>0 && m>0? n*m: 0;
+}
 
+
+char *get_initials (const char *full_name, char initials[4])
+{
+
+  char damn = strtok(full_name, ' ');
+//   *initials = '\0'; // write to initials
+  initials[0] = toupper(full_name[0]);
+
+  initials[1] = '.';
+
+
+  return initials; // return it
+}
 
 
 int main(){
@@ -88,17 +108,11 @@ int main(){
     int sum1 = sum(numbers, 5);
     printf("Result: %d\n", sum1);
 
+    char initials[4];
+    char name[] = "Sam Harris";
+    get_initials(name, initials);
 
+    printf("%s", initials);
 
     return 0;
-
-    int n = 2;
-    uint64_t new_numbers = powers_of_two(n, numbers);
-
-   printf("\nthe list is: \n");
-   for(int n = 0 ; n < 3; n++ ) {   
-      printf("%d ", new_numbers[n]);
-   }
-
-
 }
