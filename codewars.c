@@ -5,7 +5,7 @@
 #include <math.h>
 #include <ctype.h> 
 #include <string.h>
-
+#include <stdlib.h>
 
 int compare(const void * a, const void * b){
     return (*(int *)a - *(int *) b );
@@ -77,6 +77,17 @@ int paperwork(int n, int m)
 {
     return n>0 && m>0? n*m: 0;
 }
+
+
+char *number_to_string(int number) {
+
+    char *buffer = (char *)malloc(1000 * sizeof(char));
+    snprintf(buffer,1000, "%d", number );
+    return buffer;
+
+}
+
+
 
 
 char *get_initials (const char *full_name, char initials[4])
