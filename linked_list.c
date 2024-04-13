@@ -26,6 +26,13 @@ void add_node(node_t *head, node_t * next_node){
 }
 
 
+void add_at_start(node_t **head, node_t * start_node){
+
+    start_node->next = *head;
+    *head = start_node;
+}
+
+
 void print_LL_values(node_t * head) {
     node_t * curr_pointer = (node_t *)malloc(sizeof(node_t));
     curr_pointer = head;
@@ -72,5 +79,12 @@ int main(){
     add_node(head, next_node);
 
     print_LL_values(head);
+
+    node_t * start_node = (node_t *)malloc(sizeof(node_t));
+    start_node->val = 9;
+    start_node->next=NULL;
+    add_at_start(&head, start_node);
+    print_LL_values(head);
+
 
 }
