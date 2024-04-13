@@ -14,6 +14,17 @@ typedef struct node {
 
 // }
 
+void add_node(node_t *head, node_t * next_node){
+    node_t * curr_pointer = head;
+    while (curr_pointer->next != NULL)
+    {
+        curr_pointer = curr_pointer->next;
+    }
+
+    curr_pointer->next = next_node;
+
+}
+
 
 void print_LL_values(node_t * head) {
     node_t * curr_pointer = (node_t *)malloc(sizeof(node_t));
@@ -39,7 +50,7 @@ int main(){
     // new_node.val = 11;
     // new_node.next = NULL;
 
-    node_t * next_node = NULL;
+    // node_t * next_node = NULL;
     head->next = (node_t *)malloc(sizeof(node_t));
     head->next->val=4;
     head->next->next =NULL;
@@ -53,5 +64,13 @@ int main(){
 
     print_LL_values(head);
 
+
+    node_t * next_node = (node_t *)malloc(sizeof(node_t));;
+    next_node->val = 11;
+    next_node->next=NULL;
+
+    add_node(head, next_node);
+
+    print_LL_values(head);
 
 }
