@@ -26,6 +26,43 @@ void add_node(node_t *head, node_t * next_node){
 }
 
 
+int pop_head(node_t **head){
+    int temp = (*head)->val;
+    *head = (*head)->next;
+    return temp;
+
+}
+
+void remove_last_node(node_t * head){
+
+    if(head->next == NULL){
+        free(head);
+        return;
+    }
+
+    node_t * curr_pointer = head;
+    while (curr_pointer->next->next!=NULL){
+        curr_pointer = curr_pointer->next;
+    }
+    curr_pointer->next = NULL;
+
+}
+
+
+void remove_specific_item(node_t **head, int val){
+
+    node_t * curr_node = *head;
+
+    while (curr_node->next->val != val){
+        curr_node = curr_node->next;
+    }
+
+    node_t * next_node = curr_node->next->next;
+    curr_node->next = next_node;
+
+}
+
+
 void add_at_start(node_t **head, node_t * start_node){
 
     start_node->next = *head;
@@ -83,8 +120,30 @@ int main(){
     node_t * start_node = (node_t *)malloc(sizeof(node_t));
     start_node->val = 9;
     start_node->next=NULL;
+    printf("Add at start\n");
     add_at_start(&head, start_node);
     print_LL_values(head);
+
+
+    printf("POP Head\n");
+    printf("Popped value from top %d\n",pop_head(&head));
+    print_LL_values(head);
+
+
+    // printf("DELETE LAST\n");
+    // node_t * new_head = (node_t *)malloc(sizeof(node_t));;
+    // new_head->val = 11;
+    // new_head->next=NULL;
+
+    // print_LL_values(new_head);
+    // remove_last_node(new_head);
+    // print_LL_values(new_head);
+
+    printf("Delete by value\n");
+    remove_specific_item(&head, 6);
+    print_LL_values(head);
+
+    
 
 
 }
