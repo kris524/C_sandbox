@@ -87,7 +87,15 @@ char *number_to_string(int number) {
 
 }
 
+int *reverse_list(const int *array, size_t length) {
 
+    int *new_array = malloc(length * sizeof(int));
+    for (int i=0; i<length; i++){
+        new_array[length-1-i] = array[i];
+    }
+    
+    return new_array;
+}
 
 
 char *get_initials (const char *full_name, char initials[4])
