@@ -1,16 +1,12 @@
 #include <stdio.h>
 
 typedef struct {
-  char * name;
+  char *name;
   int age;
 } person;
 
 /* function declaration */
-void birthday(person * p) {
-    p->age+=1;
-}
-
-/* write your function here */
+void birthday(person *p) { p->age += 1; }
 
 int main() {
   person john;
