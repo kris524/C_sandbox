@@ -7,20 +7,40 @@
 #include <stdlib.h>
 #include <string.h>
 
+int find_total_lenght(int n) {
+
+  for (int i = 0; i < n; i++) {
+  }
+}
+
+// int create_pattern(int n) { for (int i = 0;) }
+
 int compare(const void *a, const void *b) { return (*(int *)a - *(int *)b); }
 
+void remove_exclamation_marks(const char *str_in, char *str_out) {
+  int i, j = 0;
 
+  for (i = 0; i < strlen(str_in) + 1; i++) {
+    if (str_in[i] == '!') {
+      continue;
+    }
 
+    str_out[j] = str_in[i];
+    j++;
+  }
+}
 
 int sum(const int numbers[/*length*/], int length) {
   qsort(numbers, length, sizeof(int), compare);
   int sum = 0;
 
-  for (int i = 1; i < length - 1; i++) {{
-    sum += numbers[i];
-  }
+  for (int i = 1; i < length - 1; i++) {
+    {
+      sum += numbers[i];
+    }
 
-  return sum;
+    return sum;
+  }
 }
 
 int findMin(int numbers[], int length) {
@@ -134,6 +154,12 @@ int main() {
   get_initials(name, initials);
 
   printf("%s", initials);
+  const char *test1 = "Hello! People!!";
+  char test2[50];
+  remove_exclamation_marks(test1, test2);
+
+
+  printf("\nOutput string change %s\n", test2);
 
   return 0;
 }
