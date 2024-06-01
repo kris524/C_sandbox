@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
 
@@ -14,7 +15,12 @@ int main() {
     return 1;
   }
 
+  int actual_size = 0;
+  int initial_capacity = 10;
+  int *array = (int *)malloc(initial_capacity * sizeof(int));
+
   while (fgets(line, sizeof(line), fp)) {
-    printf("%s", line);
+    array[actual_size] = atoi(line);
+    actual_size++;
   }
 }
